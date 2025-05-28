@@ -38,18 +38,45 @@ const PredictionForm = () => {
       color: '#111',
       backgroundColor: state.isSelected ? '#e0e7ff' : '#fff',
       fontWeight: state.isSelected ? 600 : 400,
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
     }),
     singleValue: (provided) => ({
       ...provided,
       color: '#111',
+      fontWeight: 500,
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      maxWidth: 'calc(100% - 20px)',
     }),
     input: (provided) => ({
       ...provided,
       color: '#111',
+      margin: 0,
+      padding: 0,
     }),
     menu: (provided) => ({
       ...provided,
       zIndex: 10,
+    }),
+    control: (provided, state) => ({
+      ...provided,
+      backgroundColor: '#fff',
+      borderColor: state.isFocused ? '#4a90e2' : '#e0e0e0',
+      '&:hover': {
+        borderColor: '#4a90e2'
+      },
+      boxShadow: state.isFocused ? '0 0 0 1px #4a90e2' : 'none',
+      minHeight: '38px',
+      height: '38px',
+    }),
+    valueContainer: (provided) => ({
+      ...provided,
+      padding: '0 8px',
+      margin: 0,
+      height: '100%',
     }),
   };
 
