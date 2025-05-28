@@ -5,13 +5,22 @@ import './PredictionForm.css';
 
 const getOptions = (arr) => arr.map(v => ({ value: v, label: String(v) }));
 
-const allFields = Object.keys(EditedData);
+const allFields = Object.keys(EditedData).filter(field => 
+  field !== 'year' && 
+  field !== 'micromarket' && 
+  field !== 'purchaser_micromarket'
+);
+
 const optionsMap = {};
 allFields.forEach(field => {
   optionsMap[field] = getOptions(EditedData[field]);
 });
 
-const initialFormData = {};
+const initialFormData = {
+  year: 2025,
+  micromarket: 'kandiwali',
+  purchaser_micromarket: 'kandiwali east'
+};
 allFields.forEach(field => {
   // Use the first value as default
   initialFormData[field] = Array.isArray(EditedData[field]) && EditedData[field].length > 0 ? EditedData[field][0] : '';
@@ -57,7 +66,12 @@ const PredictionForm = () => {
     setError(null);
     try {
       // Prepare data for API
-      const dataToSend = { ...formData };
+      const dataToSend = { 
+        ...formData,
+        year: 2025,
+        micromarket: 'kandiwali',
+        purchaser_micromarket: 'kandiwali east'
+      };
       if (typeof dataToSend.ready_reckoner_value === 'string') {
         dataToSend.ready_reckoner_value = Number(dataToSend.ready_reckoner_value.replace(/,/g, ''));
       }

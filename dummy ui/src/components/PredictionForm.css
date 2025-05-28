@@ -6,8 +6,8 @@ body {
 
 .prediction-form-container {
   max-width: 1200px;
-  margin: 1.2rem auto 0.5rem auto;
-  padding: 1.2rem 0.5rem 0.7rem 0.5rem;
+  margin: 0.2rem auto;
+  padding: 0.8rem 0.5rem;
   background: #fcfcffcc;
   border-radius: 14px;
   box-shadow: 0 4px 16px rgba(60, 80, 180, 0.08), 0 1.5px 8px rgba(60, 80, 180, 0.05);
@@ -79,8 +79,8 @@ body {
   border: 1px solid #f0f0f0;
   transition: box-shadow 0.2s, border-color 0.2s, transform 0.18s;
   flex: 1 1 0;
-  min-height: 90px;
-  justify-content: flex-start;
+  height: 90px;
+  justify-content: space-between;
 }
 .form-group:focus-within, .form-group:hover {
   box-shadow: 0 2px 8px rgba(74,144,226,0.10);
@@ -93,6 +93,9 @@ body {
   color: #2a3a5e;
   font-size: 0.98rem;
   margin-bottom: 0.1rem;
+  height: 24px;
+  display: flex;
+  align-items: center;
 }
 
 .form-group input,
@@ -242,4 +245,42 @@ button[type="submit"]:disabled {
   overflow-x: auto;
   white-space: pre-wrap;
   word-wrap: break-word;
+}
+
+.form-group .react-select__control {
+  min-height: 38px !important;
+  height: 38px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.form-group .react-select__value-container {
+  padding: 0 8px !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.form-group .react-select__single-value {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+}
+
+.form-group input {
+  height: 38px;
+  box-sizing: border-box;
+  padding: 0 8px;
+  line-height: 38px;
+  display: flex;
+  align-items: center;
+}
+
+.form-group .react-select__input-container {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.form-group .react-select__indicators {
+  height: 36px !important;
 } 
